@@ -11,14 +11,7 @@ module.exports.ReadGameList = function (req, res) {
             return console.error(err);
         }
         else {
-            /*
             res.status(200).json({
-              title: 'Games',
-              games: games,
-              displayName: req.user.displayName
-            });
-            */
-            res.render('games/index', {
                 title: 'Games',
                 games: games,
                 displayName: req.user.displayName
@@ -28,7 +21,7 @@ module.exports.ReadGameList = function (req, res) {
 };
 // displays the Details page - allowing users to add a new Game
 module.exports.DisplayAdd = function (req, res) {
-    res.render('games/details', {
+    res.status(200).json({
         title: "Add a new Game",
         games: '',
         displayName: req.user.displayName
@@ -61,11 +54,11 @@ module.exports.DisplayEdit = function (req, res) {
         game.findById(id, function (err, games) {
             if (err) {
                 console.log(err);
-                res.end(error);
+                res.end(err);
             }
             else {
                 // show the game details view
-                res.render('games/details', {
+                res.status(200).json({
                     title: 'Game Details',
                     games: games,
                     displayName: req.user.displayName
@@ -114,4 +107,4 @@ module.exports.DeleteGame = function (req, res) {
         }
     });
 };
-//# sourceMappingURL=games.js.map
+//# sourceMappingURL=api.js.map
