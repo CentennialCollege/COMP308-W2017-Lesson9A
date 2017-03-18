@@ -6,27 +6,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// angular stuff
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
+var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var router_1 = require("@angular/router");
-var http_1 = require("@angular/http");
-// Components
-var app_component_1 = require("./app.component");
-// Subcomponents
-var games_module_1 = require("./games/games.module");
-var AppModule = (function () {
-    function AppModule() {
+// top level components we want to include
+var games_routes_1 = require("./games.routes");
+var games_component_1 = require("./games.component");
+// sub components
+var list_component_1 = require("./list/list.component");
+var GamesModule = (function () {
+    function GamesModule() {
     }
-    return AppModule;
+    return GamesModule;
 }());
-AppModule = __decorate([
+GamesModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, games_module_1.GamesModule, router_1.RouterModule],
-        declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent]
+        imports: [
+            common_1.CommonModule,
+            forms_1.FormsModule,
+            router_1.RouterModule.forChild(games_routes_1.GamesRoutes)
+        ],
+        declarations: [
+            games_component_1.GamesComponent,
+            list_component_1.ListComponent
+        ]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], GamesModule);
+exports.GamesModule = GamesModule;
+//# sourceMappingURL=games.module.js.map
