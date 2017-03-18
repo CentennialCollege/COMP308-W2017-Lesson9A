@@ -10,6 +10,6 @@ export const GamesRoutes:Routes = [{
   path: 'api',
   component: GamesComponent,
   children: [
-    {path: '/games', component: ListComponent}
+    {path: 'games', component: ListComponent}
   ]
 }];

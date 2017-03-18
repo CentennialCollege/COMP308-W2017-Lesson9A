@@ -16,7 +16,8 @@ var GamesComponent = (function () {
 GamesComponent = __decorate([
     core_1.Component({
         selector: 'games',
-        template: '<router-outlet></router-outlet>',
+        //template: '<router-outlet></router-outlet>',
+        template: '<h1>GAMES</h1>',
         providers: [games_service_1.GamesService]
     })
 ], GamesComponent);

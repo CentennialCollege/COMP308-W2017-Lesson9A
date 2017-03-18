@@ -12,8 +12,11 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
+var common_1 = require("@angular/common");
 // Components
 var app_component_1 = require("./app.component");
+// Routers
+var app_routes_1 = require("./app.routes");
 // Subcomponents
 var games_module_1 = require("./games/games.module");
 var AppModule = (function () {
@@ -23,8 +26,10 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, games_module_1.GamesModule, router_1.RouterModule],
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, games_module_1.GamesModule,
+            router_1.RouterModule.forRoot(app_routes_1.AppRoutes)],
         declarations: [app_component_1.AppComponent],
+        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
